@@ -49,15 +49,9 @@ export const updateTask = () => {
         if (check.id === task.dataset.indexNumber) {
           getTask().forEach((item) => {
             if (item.index === check.id) {
-              if (item.completed) {
-                item.completed = false;
-                localStorage.setItem('Task-list', JSON.stringify(getTask()));
-                window.location.reload();
-              } else {
-                item.completed = true;
-                localStorage.setItem('Task-list', JSON.stringify(getTask()));
-                window.location.reload();
-              }
+              item.completed = !item.completed;
+              localStorage.setItem('Task-list', JSON.stringify(getTask()));
+              window.location.reload();
             }
           });
         }
